@@ -152,12 +152,8 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		height: fill-available;
-
-		// @media only screen and (max-width: $bp-small) {
-		//   height: 193px;
-		//   width: 339px ;
-		// }
+    // Vertically fills up space
+    flex: 1 0 auto;
 	}
 
 	&__title-head {
