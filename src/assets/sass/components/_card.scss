@@ -1,8 +1,88 @@
 .card {
-  height: 439px;
-  max-width: 366px;
-  width: 100%;
-  background-color: $color-near-1;
-  border-radius: 6px;
-  
+	height: 439px;
+	max-width: 366px;
+	width: 100%;
+	background-color: $color-near-1;
+	border-radius: 10px;
+
+	@media only screen and (max-width) {
+		height: 429px;
+		width: 364px;
+	}
+
+	&__container {
+		border-radius: 6px;
+		overflow: hidden;
+		height: 100%;
+	}
+
+	&__media {
+	}
+
+	&__media-thumb {
+		position: relative;
+	}
+
+	&__hover-effect {
+		//  to make child image fit
+		display: block;
+
+    overflow: hidden;
+
+		box-shadow: none;
+		text-decoration: none;
+    transition: all .3s ease-out .2s;
+
+		&::before {
+			content: '';
+			opacity: 1;
+			background-image: -webkit-gradient(
+				linear,
+				left top,
+				left bottom,
+				from(rgba(0, 0, 0, 0)),
+				color-stop(0%, rgba(0, 0, 0, 0)),
+				color-stop(50%, rgba(0, 0, 0, 0)),
+				to(rgba(0, 0, 0, 0.75))
+			);
+			background-image: -o-linear-gradient(
+				top,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0) 50%,
+				rgba(0, 0, 0, 0.75) 100%
+			);
+			background-image: linear-gradient(
+				to bottom,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0) 50%,
+				rgba(0, 0, 0, 0.75) 100%
+			);
+			z-index: 1;
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+		}
+
+    & *:nth-child(1) {
+      transition: all .3s ease-out .2s;
+    }
+
+    &:hover > *:nth-child(1) {
+      transform: scale(1.10);
+      transition: all .3s ease-out;
+    }
+	}
+
+	&__hover-effect img {
+		//  fits image to its parent div
+		height: auto;
+		max-width: 100%;
+
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+	}
 }
